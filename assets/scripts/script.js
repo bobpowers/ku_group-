@@ -10,7 +10,8 @@ var restaurantArray = [];
 var choiceArray = ["chinese", "mexican", "greek"];
 var randomized;
 var queryURL2;
-$.ajax({
+var ajax1 = function() {
+	$.ajax({
 	url: queryproxyURL,
 	method: "GET"
 	}).done(function(geocodeResponse) {
@@ -59,6 +60,7 @@ $.ajax({
 		          		photo: placesResponse.results[i].photos[0].html_attributions[0]
 		        	}
 		        restaurantArray.push(newRestaurant);
+		        // closing out restaurantArray loop
 		      	}
 
 
@@ -81,7 +83,28 @@ $.ajax({
 		    	targetDiv.append("<h3>" + randomized.address + "</h3>");
 		    	targetDiv.append("<h3>Open: " + randomized.open + "</h3>");
 		    	$("#testdiv").append(targetDiv);
+			// closing out places .done function
 			});
+		// closing out choiceArray loop
  		};
+ 	// closing out geocode .done function 
 	});
+// closing out ajax1 function
+};
+
+ajax1();
+
+
+$("#differentButton").on("click", function(){
+	randomized = restaurantArray[Math.floor(Math.random()*restaurantArray.length)];
+	$("#test").attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyBBD9zvuayxJ1_OtpgrqG75VNnW8v0ozeI&q=" + randomized.address);
+	var targetDiv = $("#targetChoice");
+	targetDiv.empty();
+	targetDiv.append("<h1>" + randomized.name + "</h1>");
+	targetDiv.append("<h3>" + randomized.address + "</h3>");
+	targetDiv.append("<h3>Open: " + randomized.open + "</h3>");
+	$("#testdiv").append(targetDiv);
+});
+
+// closing out document ready
 });
