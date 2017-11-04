@@ -1,7 +1,9 @@
 $( document ).ready(function() {
 
 var zip = "66214"
+var proxy = "https://cors-anywhere.herokuapp.com/"
 var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
+var queryproxyURL = proxy + queryURL;
 var lat;
 var long;
 var restaurantArray = [];
@@ -9,7 +11,7 @@ var choiceArray = ["chinese", "mexican", "greek"];
 var randomized;
 var queryURL2;
 $.ajax({
-	url: queryURL,
+	url: queryproxyURL,
 	method: "GET"
 	}).done(function(geocodeResponse) {
 
@@ -35,8 +37,9 @@ $.ajax({
  	// making another ajax call after the first (to geocode) is complete
  		for (c=0; c<choiceArray.length;c++) {
  			queryURL2 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=" + choiceArray[c] + "&location=" + lat + "," + long + "&radius=10000&type=restaurant&key=AIzaSyDy2zMoM1O0AbT5V948JyuE4AHVTrhrgjM";
+ 			queryproxyURL2 = proxy + queryURL2;
  				$.ajax({
-			url: queryURL2,
+			url: queryproxyURL2,
 			method: "GET"
 			}).done(function(placesResponse) {
 
