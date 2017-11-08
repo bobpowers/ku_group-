@@ -20,7 +20,10 @@ database.ref().child(user).on("child_added", function(childSnapshot, prevChildKe
 
 		var restName = childSnapshot.val().name;
 		var restAddr = childSnapshot.val().addr;
-		var replacedAddr = restAddr.replace(' ', '+');
+		console.log(restAddr);
+		var replacedAddr = restAddr.split(' ').join('+');
+		console.log(replacedAddr);
+
 
 		// Train Info
 		console.log(restName);
