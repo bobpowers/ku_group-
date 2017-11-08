@@ -69,7 +69,7 @@ var ajax1 = function() {
                 targetDiv.append("<h1>" + randomized.name + "</h1>");
                 targetDiv.append("<h3>" + randomized.address + "</h3>");
                 targetDiv.append("<h3>Open: " + randomized.open + "</h3>");
-                $("#testdiv").append(targetDiv);
+                $("#results").append(targetDiv);
                 choiceArray = [];
             // closing out places .done function
             });
@@ -94,7 +94,7 @@ var ajax1 = function() {
         $("#buttonSection").empty();
         for (var i = 0; i < foodArray.length; i++) {
             var newLabel = $("<label>");
-            newLabel.addClass("btn btn-primary buttonCheck");
+            newLabel.addClass("btn btn-sm btn-primary buttonCheck");
             var newInput = $('<input>');
             newLabel.text(foodArray[i]);
             newInput.val(foodArray[i]);
