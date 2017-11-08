@@ -78,11 +78,13 @@ var ajax1 = function() {
                 // setting the DOM element for google maps embed
                 if (c === choiceArray.length) {
                 $("#test").attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyBBD9zvuayxJ1_OtpgrqG75VNnW8v0ozeI&q=" + randomized.address);
+                $("#test").attr("width", 600);
+                $("#test").attr("height", 450);
                 var targetDiv = $("#results");
                 targetDiv.empty();
                 targetDiv.append("<h1>" + randomized.name + "</h1>");
                 targetDiv.append("<h3>" + randomized.address + "</h3>");
-                targetDiv.append("<h3>Open: " + randomized.open + "</h3>");
+                targetDiv.append("<h3>Currently Open: " + randomized.open + "</h3>");
                 targetDiv.append("<button class = btn-success id = addFavorite>" + "<span class='" + "glyphicon glyphicon-thumbs-up glyphicon-align-left" + "'></span>" + " | Add to Favorites</button>");
                 targetDiv.append("<button class = btn-primary id = differentButton>" + "<span class='" + "glyphicon glyphicon-thumbs-down glyphicon-align-left" + "'></span>" + " | I don't like this choice, gimme another!</button>");
 
