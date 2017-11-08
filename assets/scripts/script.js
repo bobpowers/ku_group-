@@ -168,6 +168,7 @@ var ajax1 = function() {
     });
 // Send User choices to array for Google Search
     $("#pickPlace").on("click", function(){
+    		window.scrollTo(0,document.body.scrollHeight);
 	        restaurantArray = [];
 	    	$("label").each(function(){
 	        if ($(this).hasClass("active")){
