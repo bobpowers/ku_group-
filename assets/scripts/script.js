@@ -1,7 +1,7 @@
 $(document).ready(function() {
-var zip = "66214"
-var user = "matt"
-var proxy = "https://cors-anywhere.herokuapp.com/"
+var zip = "66214";
+var user = "john";
+var proxy = "https://cors-anywhere.herokuapp.com/";
 var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
 var queryproxyURL = proxy + queryURL;
 var lat;
@@ -82,9 +82,9 @@ var ajax1 = function() {
                 $("#test").attr("height", 450);
                 var targetDiv = $("#results");
                 targetDiv.empty();
-                targetDiv.append("<h1>" + randomized.name + "</h1>");
-                targetDiv.append("<h3>" + randomized.address + "</h3>");
-                targetDiv.append("<h3>Currently Open: " + randomized.open + "</h3>");
+                targetDiv.append("<h1 id = nameDisp>" + randomized.name + "</h1>");
+                targetDiv.append("<h3 id = addrDisp>" + randomized.address + "</h3>");
+                targetDiv.append("<h3 id = openDisp>Currently Open: " + randomized.open + "</h3>");
                 targetDiv.append("<button class = btn-success id = addFavorite>" + "<span class='" + "glyphicon glyphicon-thumbs-up glyphicon-align-left" + "'></span>" + " | Add to Favorites</button>");
                 targetDiv.append("<button class = btn-primary id = differentButton>" + "<span class='" + "glyphicon glyphicon-thumbs-down glyphicon-align-left" + "'></span>" + " | I don't like this choice, gimme another!</button>");
                 window.scrollTo(0,document.body.scrollHeight);
@@ -199,12 +199,31 @@ var ajax1 = function() {
     $("#test").attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyBBD9zvuayxJ1_OtpgrqG75VNnW8v0ozeI&q=" + randomized.address);
     var targetDiv = $("#results");
     targetDiv.empty();
-    targetDiv.append("<h1>" + randomized.name + "</h1>");
-    targetDiv.append("<h3>" + randomized.address + "</h3>");
-    targetDiv.append("<h3>Open: " + randomized.open + "</h3>");
+    targetDiv.append("<h1 id = nameDisp>" + randomized.name + "</h1>");
+    targetDiv.append("<h3 id = addrDisp>" + randomized.address + "</h3>");
+    targetDiv.append("<h3 id = openDisp>Open: " + randomized.open + "</h3>");
     targetDiv.append("<button class = btn-success id = addFavorite>" + "<span class='" + "glyphicon glyphicon-thumbs-up glyphicon-align-left" + "'></span>" + " | Add to Favorites</button>");
     targetDiv.append("<button class = btn-primary id = differentButton>" + "<span class='" + "glyphicon glyphicon-thumbs-down glyphicon-align-left" + "'></span>" + " | I don't like this choice, gimme another!</button>");
     $("#testdiv").append(targetDiv);
     
-});
+	});
+
+	$("#results").on("click", "#addFavorite", function() {
+
+	// Grabs user input
+	var restName = randomized.name;
+	var restAddr = randomized.address;
+	var restOpen = randomized.open;
+
+	// Creates local "temporary" object for holding Train data
+	var newFave = {
+		name: restName,
+		addr: restAddr,
+	}
+
+	var firebaseUser = {user: user}
+	// Uploads Train data to the database
+	database.ref().child(user).push(newFave);
+	});
+
 });
