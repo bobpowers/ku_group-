@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-var user = "matt";
+var user = JSON.parse(localStorage.getItem("user"))
 var config = {
     apiKey: "AIzaSyCYdPMoNLmcfap3ayxyS8l8fKfJveTpr84",
     authDomain: "ku-group-project.firebaseapp.com",
