@@ -64,11 +64,13 @@ var ajax1 = function() {
                 console.log("------------------------------------");
                 // setting the DOM element for google maps embed
                 $("#test").attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyBBD9zvuayxJ1_OtpgrqG75VNnW8v0ozeI&q=" + randomized.address);
-                var targetDiv = $("#targetChoice");
+                var targetDiv = $("#results");
                 targetDiv.empty();
                 targetDiv.append("<h1>" + randomized.name + "</h1>");
                 targetDiv.append("<h3>" + randomized.address + "</h3>");
                 targetDiv.append("<h3>Open: " + randomized.open + "</h3>");
+                targetDiv.append("<button id = differentButton>I don't like this choice, gimme another!</button>");
+
                 $("#results").append(targetDiv);
                 choiceArray = [];
             // closing out places .done function
@@ -127,6 +129,8 @@ var ajax1 = function() {
         }
     }
     updateFoods();
+
+
 // Allow User to add food types to foodArray
     $("#userAddition").on("click", function(event){
         event.preventDefault();
@@ -165,6 +169,20 @@ var ajax1 = function() {
             // Run AJAX CALL WITH FOODS THEN:
         }
     });
+    console.log("after click");
+    console.log(restaurantArray);
     ajax1();
     });
+    $("#results").on("click", "#differentButton", function(){
+    randomized = restaurantArray[Math.floor(Math.random()*restaurantArray.length)];
+    console.log(randomized);
+    $("#test").attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyBBD9zvuayxJ1_OtpgrqG75VNnW8v0ozeI&q=" + randomized.address);
+    var targetDiv = $("#results");
+    targetDiv.empty();
+    targetDiv.append("<h1>" + randomized.name + "</h1>");
+    targetDiv.append("<h3>" + randomized.address + "</h3>");
+    targetDiv.append("<h3>Open: " + randomized.open + "</h3>");
+    targetDiv.append("<button id = differentButton>I don't like this choice, gimme another!</button>");
+    $("#testdiv").append(targetDiv);
+});
 });
