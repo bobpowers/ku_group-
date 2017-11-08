@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
 var zip = "66214"
 var proxy = "https://cors-anywhere.herokuapp.com/"
 var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
