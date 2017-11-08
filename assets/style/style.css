@@ -2,3 +2,29 @@
   width:100%;
   height:375px;
 }
+
+#targetChoice h1, h3 {
+text-align: center;
+}
+
+/*.styleButtons {
+	width: 100px;
+	height: 50px;
+}*/
+
+.active {
+	background-color: red;
+}
+
+/*.btn:active {
+    background-color: orange;
+    color: orange;
+}*/
+
+.foodForm {
+	text-align: center;
+}
+
+.buttonCheck.active{
+	background-color: orange;
+}

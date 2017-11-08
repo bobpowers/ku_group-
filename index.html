@@ -84,34 +84,29 @@
            </div>
           <div>
             <nav class="navbar navbar-light bg-faded">
-                  <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                    <form action="/action_page.php">
-                    <select name="type_food" multiple>
-                      <option value="Mexican">Volvo</option>
-                      <option value=“Greek”>Greek</option>
-                      <option value=“Hamburger”>Hamburger</option>
-                      <option value=“Indian”>Indian</option>
-                      <option value=“Italian”>Italian</option>
-                      <option value=“Japanese”>Japanese</option>
-                      <option value=“Seafood”>Seafood</option>
-                      <option value=“Steak”>Steak</option>
-                      <option value=“Sushi”>Sushi</option>
-                      <option value=“Thai”>Thai</option>
-                    </select>
-                    </form>
-                    <p>Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</p>
+                  <div class="foodForm">
+                      <div class="btn-group" data-toggle="buttons" id="buttonSection"></div>
+                  </div>
+                   <div>
+                      <button id="pickPlace" type="button" class="btn btn-primary btn-lg">Pick A Place!</button>
+                  </div>
 
-
-                    <button class="btn btn-primary btn-lg" type="submit">Search</button>
+                  <form>
+                      <div class="form-group">
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <input type="text" class="form-control" id="searchField" placeholder="Control Your Own Fate!">
+                              </div>
+                              <div class="col-md-2">
+                                  <input class="btn btn-default" type="submit" value="Submit" id="userAddition">
+                              </div>
+                          </div>
+                      </div>
                   </form>
-
-
+                <div id = targetChoice></div>
                 </nav>
           </div>
-      
-
-      </div>
+       </div>
   </div>
     </header>
 
@@ -137,6 +132,7 @@
 
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script type="text/javascript" src="assets/scripts/script.js"></script>
  
 
   </body>
