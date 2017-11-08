@@ -1,5 +1,6 @@
 $(document).ready(function() {
 var zip = "66214"
+var user = "matt"
 var proxy = "https://cors-anywhere.herokuapp.com/"
 var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
 var queryproxyURL = proxy + queryURL;
@@ -69,7 +70,8 @@ var ajax1 = function() {
                 targetDiv.append("<h1>" + randomized.name + "</h1>");
                 targetDiv.append("<h3>" + randomized.address + "</h3>");
                 targetDiv.append("<h3>Open: " + randomized.open + "</h3>");
-                targetDiv.append("<button id = differentButton>I don't like this choice, gimme another!</button>");
+                targetDiv.append("<button class = btn-success id = addFavorite>" + "<span class='" + "glyphicon glyphicon-thumbs-up glyphicon-align-left" + "'></span>" + " | Add to Favorites</button>");
+                targetDiv.append("<button class = btn-primary id = differentButton>" + "<span class='" + "glyphicon glyphicon-thumbs-down glyphicon-align-left" + "'></span>" + " | I don't like this choice, gimme another!</button>");
 
                 $("#results").append(targetDiv);
                 choiceArray = [];
@@ -182,7 +184,8 @@ var ajax1 = function() {
     targetDiv.append("<h1>" + randomized.name + "</h1>");
     targetDiv.append("<h3>" + randomized.address + "</h3>");
     targetDiv.append("<h3>Open: " + randomized.open + "</h3>");
-    targetDiv.append("<button id = differentButton>I don't like this choice, gimme another!</button>");
+    targetDiv.append("<button class = btn-success id = addFavorite>" + "<span class='" + "glyphicon glyphicon-thumbs-up glyphicon-align-left" + "'></span>" + " | Add to Favorites</button>");
+    targetDiv.append("<button class = btn-primary id = differentButton>" + "<span class='" + "glyphicon glyphicon-thumbs-down glyphicon-align-left" + "'></span>" + " | I don't like this choice, gimme another!</button>");
     $("#testdiv").append(targetDiv);
 });
 });
