@@ -87,7 +87,7 @@ var ajax1 = function() {
                 targetDiv.append("<h3>Currently Open: " + randomized.open + "</h3>");
                 targetDiv.append("<button class = btn-success id = addFavorite>" + "<span class='" + "glyphicon glyphicon-thumbs-up glyphicon-align-left" + "'></span>" + " | Add to Favorites</button>");
                 targetDiv.append("<button class = btn-primary id = differentButton>" + "<span class='" + "glyphicon glyphicon-thumbs-down glyphicon-align-left" + "'></span>" + " | I don't like this choice, gimme another!</button>");
-
+                window.scrollTo(0,document.body.scrollHeight);
                 $("#results").append(targetDiv);
                 choiceArray = [];
             };
@@ -168,7 +168,6 @@ var ajax1 = function() {
     });
 // Send User choices to array for Google Search
     $("#pickPlace").on("click", function(){
-    		window.scrollTo(0,document.body.scrollHeight);
 	        restaurantArray = [];
 	    	$("label").each(function(){
 	        if ($(this).hasClass("active")){
