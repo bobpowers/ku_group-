@@ -7,18 +7,8 @@
 text-align: center;
 }
 
-/*.styleButtons {
-	width: 100px;
-	height: 50px;
-}*/
-
 .active {
-	background-color: red;
-}
-
-.btn:active {
-    background-color: orange;
-    color: orange;
+	background-color: gray;
 }
 
 .foodForm {
@@ -43,4 +33,22 @@ text-align: center;
 	margin: auto;
 	width: 100%;
 	height: 50px;
+}
+
+#pickPlace {
+	background-color: green;
+	border: none;
+}
+
+.buttonCheck {
+	background-color: gray;
+	border: none;
+}
+
+#addFavorite {
+	border: none;
+}
+
+#differentButton {
+	border: none;
 }

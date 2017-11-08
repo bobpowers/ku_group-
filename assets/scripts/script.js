@@ -64,6 +64,7 @@ var ajax1 = function() {
                 console.log(randomized);
                 console.log("------------------------------------");
                 // setting the DOM element for google maps embed
+                if (c === choiceArray.length) {
                 $("#test").attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyBBD9zvuayxJ1_OtpgrqG75VNnW8v0ozeI&q=" + randomized.address);
                 var targetDiv = $("#results");
                 targetDiv.empty();
@@ -75,6 +76,7 @@ var ajax1 = function() {
 
                 $("#results").append(targetDiv);
                 choiceArray = [];
+            };
             // closing out places .done function
             });
         // closing out choiceArray loop
