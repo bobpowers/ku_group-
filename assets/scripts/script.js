@@ -115,7 +115,7 @@ var ajax1 = function() {
             var userAdded = JSON.parse(localStorage.getItem("userAdded"));
             for (var i = 0; i < userAdded.length; i++) {
                 var newLabel = $("<label>");
-                newLabel.addClass("btn btn-primary buttonCheck");
+                newLabel.addClass("btn btn-sm btn-primary buttonCheck");
                 var newInput = $('<input>');
                 newLabel.text(userAdded[i]);
                 newInput.val(userAdded[i]);
