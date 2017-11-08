@@ -11,6 +11,18 @@ var choiceArray = [];
 var randomized;
 var queryURL2;
 var foodArray = ["American", "Barbecue", "Chinese", "Fast Food", "French", "Greek", "Indian", "Italian", "Japanese", "Mexican", "Pizza", "Seafood", "Steak", "Sushi", "Thai"];
+var config = {
+    apiKey: "AIzaSyCYdPMoNLmcfap3ayxyS8l8fKfJveTpr84",
+    authDomain: "ku-group-project.firebaseapp.com",
+    databaseURL: "https://ku-group-project.firebaseio.com",
+    projectId: "ku-group-project",
+    storageBucket: "",
+    messagingSenderId: "1072058023036"
+};
+firebase.initializeApp(config);
+var database = firebase.database();
+
+
 var ajax1 = function() {
     $.ajax({
     url: queryproxyURL,
@@ -85,16 +97,7 @@ var ajax1 = function() {
     });
 // closing out ajax1 function
 };
-    var config = {
-    apiKey: "AIzaSyCYdPMoNLmcfap3ayxyS8l8fKfJveTpr84",
-    authDomain: "ku-group-project.firebaseapp.com",
-    databaseURL: "https://ku-group-project.firebaseio.com",
-    projectId: "ku-group-project",
-    storageBucket: "",
-    messagingSenderId: "1072058023036"
-  };
-    firebase.initializeApp(config);
-    var database = firebase.database();
+
 // Loop through foodArray and add buttons to page
     var updateFoods = function(){
         $("#buttonSection").empty();
@@ -163,20 +166,31 @@ var ajax1 = function() {
     });
 // Send User choices to array for Google Search
     $("#pickPlace").on("click", function(){
-        restaurantArray = [];
-    $("label").each(function(){
-        if ($(this).hasClass("active")){
-            var selection = $(this).text().trim();
-            var replaced = selection.replace(/ /g, '+');
-            choiceArray.push(replaced);
-            console.log(choiceArray);
-            // Run AJAX CALL WITH FOODS THEN:
-        }
+	        restaurantArray = [];
+	    	$("label").each(function(){
+	        if ($(this).hasClass("active")){
+	            var selection = $(this).text().trim();
+	            var replaced = selection.replace(/ /g, '+');
+	            choiceArray.push(replaced);
+	            console.log(choiceArray);
+	            // Run AJAX CALL WITH FOODS THEN:
+	        }
+    		});
+
+    		if (choiceArray.length !== 0) {
+    			var targetDiv = $("#errorRow");
+			    targetDiv.empty();
+			    console.log("after click");
+			    console.log(restaurantArray);
+			    ajax1();
+			}
+			else {
+			    var targetDiv = $("#errorRow");
+			    targetDiv.empty();
+			    targetDiv.append("<h1>Please select one or more cuisines!</h1>");
+			}
     });
-    console.log("after click");
-    console.log(restaurantArray);
-    ajax1();
-    });
+
     $("#results").on("click", "#differentButton", function(){
     randomized = restaurantArray[Math.floor(Math.random()*restaurantArray.length)];
     console.log(randomized);
