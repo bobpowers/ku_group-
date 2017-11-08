@@ -20,6 +20,7 @@ database.ref().child(user).on("child_added", function(childSnapshot, prevChildKe
 
 		var restName = childSnapshot.val().name;
 		var restAddr = childSnapshot.val().addr;
+		var replacedAddr = restAddr.replace(' ', '+');
 
 		// Train Info
 		console.log(restName);
@@ -28,7 +29,7 @@ database.ref().child(user).on("child_added", function(childSnapshot, prevChildKe
 
 		// Add each train's data into the table
 		$("#favesDisplay").append("<h1>" + restName + "</h1>");
-		$("#favesDisplay").append("<h1>" + restAddr + "</h1>");
+		$("#favesDisplay").append("<a href = https://www.google.com/maps/place/" + replacedAddr + "><h1>" + restAddr + "</h1></a>");
 		$("#favesDisplay").append("<br>");
 
 });
