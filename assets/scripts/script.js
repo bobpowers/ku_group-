@@ -2,8 +2,8 @@ $(document).ready(function() {
 var zip;
 var user;
 var proxy = "https://cors-anywhere.herokuapp.com/";
-var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
-var queryproxyURL = proxy + queryURL;
+var queryURL;
+var queryproxyURL;
 var lat;
 var long;
 var restaurantArray = [];
@@ -34,7 +34,8 @@ $("#my-form").submit(function(event){
     localStorage.setItem("user", JSON.stringify(user));
     zip = $("#zip").val();
     localStorage.setItem("zip", JSON.stringify(zip));
-
+    queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
+    queryproxyURL = proxy + queryURL;
     $('#myModal').modal( 'hide' );
 
     console.log(user);
