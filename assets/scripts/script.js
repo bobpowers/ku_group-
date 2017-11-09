@@ -45,8 +45,8 @@ $(document).ready(function() {
 		});
 	}
 	else {
-		user = localStorage.getItem("name");
-		zip = localStorage.getItem("zip");
+		user = JSON.parse(localStorage.getItem("user"));
+		zip = JSON.parse(localStorage.getItem("zip"));
 		queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
 	    queryproxyURL = proxy + queryURL;	
 	};
@@ -261,8 +261,8 @@ $(document).ready(function() {
 	});
 
 	$("#results").on("click", "#addFavorite", function() {
-
 	// Grabs user input
+	console.log(user);
 	var restName = randomized.name;
 	var restAddr = randomized.address;
 	var restOpen = randomized.open;

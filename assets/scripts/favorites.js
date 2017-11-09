@@ -13,6 +13,8 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
+console.log(user);
+console.log(database.ref().child(user));
 
 database.ref().child(user).on("child_added", function(childSnapshot, prevChildKey){
 
