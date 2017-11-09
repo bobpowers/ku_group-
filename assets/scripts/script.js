@@ -196,7 +196,6 @@ $(document).ready(function() {
     });
 // Send User choices to array for Google Search
     $("#pickPlace").on("click", function(){
-    		localStorage.setItem("user", JSON.stringify(user));
 	        restaurantArray = [];
 	    	$("label").each(function(){
 	        if ($(this).hasClass("active")){
