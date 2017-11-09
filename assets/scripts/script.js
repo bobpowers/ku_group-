@@ -1,6 +1,6 @@
 $(document).ready(function() {
-var zip = "66214";
-var user = "matt";
+var zip;
+var user;
 var proxy = "https://cors-anywhere.herokuapp.com/";
 var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
 var queryproxyURL = proxy + queryURL;
@@ -21,6 +21,26 @@ var config = {
 };
 firebase.initializeApp(config);
 var database = firebase.database();
+
+$('#myModal').modal('show');
+
+ 
+
+$("#my-form").submit(function(event){
+
+    event.preventDefault();
+
+    user = $("#name").val();
+    localStorage.setItem("user", JSON.stringify(user));
+    zip = $("#zip").val();
+
+    $('#myModal').modal( 'hide' );
+
+    console.log(user);
+
+    console.log(zip);
+
+});
 
 
 var ajax1 = function() {
