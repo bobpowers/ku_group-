@@ -23,7 +23,7 @@ $(document).ready(function() {
 	var database = firebase.database();
 
 
-	if (localStorage.getItem("user") === null && localStorage.getItem("zip") === null) {
+	if (localStorage.getItem("user") === null || localStorage.getItem("zip") === null) {
 		$('#myModal').modal('show');
 
 		$("#my-form").submit(function(event){
