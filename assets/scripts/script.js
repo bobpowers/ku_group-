@@ -172,8 +172,29 @@ $(document).ready(function() {
     $("#userAddition").on("click", function(event){
         event.preventDefault();
         var userFood = $("#searchField").val().trim();
-        if ($("#searchField").val() === ""){
+        if ($("#searchField").val() === "" && $("zipField").val() === ""){
             return false;
+        }
+        else if ($("#searchField").val() === "") {
+            zip = $("#zipField").val();
+            localStorage.setItem("zip", JSON.stringify(zip));
+        }
+        else if ($("zipField").val() === "") {
+            event.preventDefault();
+            var newFood = $("#searchField").val().trim();
+            var userAdded = []; // Array that is Written to localStorage
+            $("#searchField").val("");
+            if (!localStorage.userAdded){
+                userAdded.push(newFood);
+                localStorage.setItem("userAdded", JSON.stringify(userAdded));
+            }
+            else {
+                userAdded = JSON.parse(localStorage.getItem("userAdded"))
+                userAdded.push(newFood);
+                localStorage.setItem("userAdded", JSON.stringify(userAdded));
+            }
+            userAdded = [];
+            updateFoods();
         }
         // Write user submitted button to local storage
         else {
@@ -190,6 +211,9 @@ $(document).ready(function() {
                 userAdded.push(newFood);
                 localStorage.setItem("userAdded", JSON.stringify(userAdded));
             }
+            zip = $("#zipField").val();
+            localStorage.setItem("zip", JSON.stringify(zip));
+
             userAdded = [];
             updateFoods();
         }
