@@ -114,7 +114,7 @@
                           <input type="text" class="form-control" id="searchField" placeholder="Cuisine">
                           <br>
                           <li>Change Zipcode</li>
-                          <input maxlength="5" type="number" class="form-control" id="zipField" placeholder="Zipcode">
+                          <input type="number" min="00000" max="99999" class="form-control" id="zipField" placeholder="Zipcode">
                           <br>
                           <input class="btn btn-default" type="submit" value="Submit" id="userAddition">
                         </ul>
@@ -162,7 +162,7 @@
               <!-- Modal Header -->
               <div class="modal-header">
                   <h4 class="modal-title" id="myModalLabel">
-                      Hungry? Tell us who you are and where you are at and we will find you food!
+                      Hungry? Please Enter Your Name and Zip Code and We'll Find You Somewhere To Eat!
                   </h4>
               </div>
               
@@ -171,7 +171,7 @@
                   
                  <form id="my-form">
                     <input type="text" id="name" placeholder="Enter Your Name">
-                    <input maxlength="5" type="number" id="zip" placeholder="Enter Your Zip Code">
+                    <input type="number" min="00000" max="99999" id="zip" placeholder="Enter Your Zip Code">
                     <input type="submit" id="submit" >
                  </form>
               </div>
