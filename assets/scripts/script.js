@@ -33,6 +33,7 @@ $("#my-form").submit(function(event){
     user = $("#name").val();
     localStorage.setItem("user", JSON.stringify(user));
     zip = $("#zip").val();
+    localStorage.setItem("zip", JSON.stringify(zip));
 
     $('#myModal').modal( 'hide' );
 
