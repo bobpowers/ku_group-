@@ -247,5 +247,4 @@ var ajax1 = function() {
 	// Uploads Train data to the database
 	database.ref().child(user).push(newFave);
 	});
-   	localStorage.setItem("user", JSON.stringify(user));
 });
