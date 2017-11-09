@@ -116,7 +116,7 @@ var ajax1 = function() {
             newLabel.append(newInput);
             $("#buttonSection").append(newLabel);
         }
-            // $("moodButtons").empty();
+        // Check if there are any user-stored buttons in localStorage
         if (!localStorage.userAdded) {
             return false;
         }
@@ -147,12 +147,12 @@ var ajax1 = function() {
         if ($("#searchField").val() === ""){
             return false;
         }
+        // Write user submitted button to local storage
         else {
             event.preventDefault();
             var newFood = $("#searchField").val().trim();
             var userAdded = []; // Array that is Written to localStorage
             $("#searchField").val("");
-            // foodArray.push(newFood);
             if (!localStorage.userAdded){
                 userAdded.push(newFood);
                 localStorage.setItem("userAdded", JSON.stringify(userAdded));
@@ -176,7 +176,6 @@ var ajax1 = function() {
 	            var replaced = selection.replace(/ /g, '+');
 	            choiceArray.push(replaced);
 	            console.log(choiceArray);
-	            // Run AJAX CALL WITH FOODS THEN:
 	        }
     		});
 
