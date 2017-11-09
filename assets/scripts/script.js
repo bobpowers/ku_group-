@@ -22,9 +22,9 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
-$('#myModal').modal('show');
 
- 
+if (localStorage.getItem("user") === null && localStorage.getItem("zip") === null) {
+$('#myModal').modal('show');
 
 $("#my-form").submit(function(event){
 
@@ -43,7 +43,13 @@ $("#my-form").submit(function(event){
     console.log(zip);
 
 });
-
+}
+else {
+	user = localStorage.getItem("name");
+	zip = localStorage.getItem("zip");
+	queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
+    queryproxyURL = proxy + queryURL;	
+};
 
 var ajax1 = function() {
     $.ajax({
