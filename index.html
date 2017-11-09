@@ -13,10 +13,11 @@
     <!-- Bootstrap core CSS -->
     <link href="assets/style/bootstrap.min.css" rel="stylesheet">
 
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
 
 
     <!-- Custom styles for this template -->
@@ -86,7 +87,7 @@
                       <div class="btn-group" data-toggle="buttons" id="buttonSection"></div>
                   </div>
                   <br>
-                  <form class>
+                  <!-- form class>
                       <div class="form-group">
                           <div class="row">
                               <div class="col-md-offset-4 col-md-4 col-sm-4 col-sm-offset-4">
@@ -97,9 +98,30 @@
                               </div>
                           </div>
                       </div>
-                  </form>
+                  </form> -->
+
+
                    <div class = row>
                       <button id="pickPlace" type="button" class="col-md-offset-5 col-md-2 btn btn-primary btn-lg">Let's Go!</button>
+
+                      <!-- NEW CONTENT -->
+                      <div class="dropdown">
+                        <button id="dLabel" class="btn btn-primary btn-lg dropDownButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropDownContent" aria-labelledby="dLabel">
+                          <li>Add Your Own Cuisine!</li>
+                          <input type="text" class="form-control" id="searchField" placeholder="Cuisine">
+                          <br>
+                          <li>Change Zipcode</li>
+                          <input type="text" class="form-control" id="zipField" placeholder="Zipcode">
+                          <br>
+                          <input class="btn btn-default" type="submit" value="Submit" id="userAddition">
+                        </ul>
+                      </div>
+
+
+                  <!-- END NEW CONTENT  -->
                   </div>
                   <br>
 

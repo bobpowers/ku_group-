@@ -40,6 +40,21 @@ text-align: center;
 	border: none;
 }
 
+.dropDownButton {
+	background-color: green;
+	border-color: green;
+}
+
+.dropDownContent {
+	text-align: center;
+	padding: 12px 12px;
+	width: 200px;
+}
+
+#userAddition {
+	margin-bottom: 10px;
+}
+
 .buttonCheck {
 	background-color: gray;
 	border: none;
@@ -59,4 +74,8 @@ text-align: center;
 
 .resultSection {
 	padding-bottom: 70px;
+}
+
+footer {
+	height: 56px;
 }
