@@ -22,9 +22,9 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
-$('#myModal').modal('show');
+if (localStorage.getItem("user") === null) {
 
- 
+$('#myModal').modal('show');
 
 $("#my-form").submit(function(event){
 
@@ -43,7 +43,7 @@ $("#my-form").submit(function(event){
     console.log(zip);
 
 });
-
+};
 
 var ajax1 = function() {
     $.ajax({
