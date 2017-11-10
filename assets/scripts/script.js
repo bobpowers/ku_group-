@@ -41,6 +41,7 @@ $(document).ready(function() {
 		    console.log(user);
 
 		    console.log(zip);
+		    introJs().start();
 
 		});
 	}
@@ -50,6 +51,7 @@ $(document).ready(function() {
 		queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
 	    queryproxyURL = proxy + queryURL;	
 	};
+
 
 	var ajax1 = function() {
 	    $.ajax({

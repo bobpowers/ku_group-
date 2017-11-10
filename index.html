@@ -30,7 +30,7 @@
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="assets/style/bootstrap.min.css" rel="stylesheet">
-
+    <link href="assets/scripts/intro.js-2.7.0/introjs.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -60,7 +60,7 @@
               </a>
             </li>
             <li class="nav-item rounded">
-              <a class="nav-link navbarButtons" href="favorites.html">My Favorites</a>
+              <a class="nav-link navbarButtons" href="favorites.html" data-intro="Your favorites can be accessed by clicking this link.  That's it!!  Enjoy our site" data-step=4>My Favorites</a>
             </li>
           </ul>
         </div>
@@ -102,7 +102,7 @@
           <div>
                  
                   <div class="foodForm">
-                      <div class="btn-group" data-toggle="buttons" id="buttonSection"></div>
+                      <div class="btn-group" data-toggle="buttons" id="buttonSection" data-intro='First time here?  No problem!  First, select as many cuisines as you want from our list, or add your own!' data-step=1></div>
                   </div>
                   <br>
                   <!-- form class>
@@ -120,11 +120,11 @@
 
 
                    <div class = row>
-                      <button id="pickPlace" type="button" class="col-md-offset-5 col-md-2 btn btn-primary btn-lg">Let's Go!</button>
+                      <button id="pickPlace" type="button" class="col-md-offset-5 col-md-2 btn btn-primary btn-lg" data-intro="Next, simply click this button and we'll choose a restaurant for you!" data-step=2>I'm Hangry!</button>
 
                       <!-- NEW CONTENT -->
                       <div class="dropdown">
-                        <button id="dLabel" class="btn btn-primary btn-lg dropDownButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="dLabel" class="btn btn-primary btn-lg dropDownButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-intro="If you want to change your zip code or add more cuisines, click this button!" data-step=3>
                           <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropDownContent" aria-labelledby="dLabel">
@@ -206,7 +206,7 @@
     <!-- Bootstrap core JavaScript -->
  
     <script type="text/javascript" src="assets/scripts/script.js"></script>
- 
+    <script type="text/javascript" src="assets/scripts/intro.js-2.7.0/intro.js"></script>
 
   </body>
 
