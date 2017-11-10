@@ -50,6 +50,7 @@ $(document).ready(function() {
 		zip = JSON.parse(localStorage.getItem("zip"));
 		queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
 	    queryproxyURL = proxy + queryURL;	
+	    console.log(zip);
 	};
 
 
@@ -87,14 +88,20 @@ $(document).ready(function() {
 	                console.log("------------------------------------");
 	               // creating new objects for the restaurantArray by looping through the top 10 results
 	                for (i=0; i<10; i++) {
-	                	let newRestaurant = {
-	                	}
-	                	if (placesResponse.results[i].opening_hours && placesResponse.results[i].opening_hours.open_now) {
 
+	                	if (placesResponse.results[i].opening_hours) {
+	                		let newRestaurant = {
+	                	}
 	                	
 	                        newRestaurant.name = placesResponse.results[i].name;
 	                        newRestaurant.address = placesResponse.results[i].vicinity;
-	                        newRestaurant.open = placesResponse.results[i].opening_hours.open_now;
+	                        if (placesResponse.results[i].opening_hours.open_now === true) {
+	                        	newRestaurant.open = "Yes"
+	                        }
+	                        else {
+	                        	newRestaurant.open = "No"
+	                        }
+	                        console.log("new Restaurant" + newRestaurant);
 	                       	restaurantArray.push(newRestaurant);
 	                    }
 
@@ -181,14 +188,14 @@ $(document).ready(function() {
         event.preventDefault();
         console.log("value:" + $("#searchField").val());
         var userFood = $("#searchField").val().trim();
-        if ($("#searchField").val() === "" && $("#zipField").val() === ""){
+        if ($("#searchField").val() === "" && $("#zipField").val() == ""){
             return false;
         }
         else if ($("#searchField").val() === "") {
             zip = $("#zipField").val();
             localStorage.setItem("zip", JSON.stringify(zip));
         }
-        else if ($("#zipField").val() === "") {
+        else if ($("#zipField").val() == "") {
             event.preventDefault();
             var newFood = $("#searchField").val().trim();
             var userAdded = []; // Array that is Written to localStorage
@@ -222,7 +229,7 @@ $(document).ready(function() {
             }
             zip = $("#zipField").val();
             localStorage.setItem("zip", JSON.stringify(zip));
-
+            console.log(zip);
             userAdded = [];
             updateFoods();
         }
@@ -261,7 +268,7 @@ $(document).ready(function() {
     targetDiv.empty();
     targetDiv.append("<h1 id = nameDisp>" + randomized.name + "</h1>");
     targetDiv.append("<h3 id = addrDisp>" + randomized.address + "</h3>");
-    targetDiv.append("<h3 id = openDisp>Open: " + randomized.open + "</h3>");
+    targetDiv.append("<h3 id = openDisp>Currently Open: " + randomized.open + "</h3>");
     targetDiv.append("<button class = btn-success id = addFavorite>" + "<span class='" + "glyphicon glyphicon-thumbs-up glyphicon-align-left" + "'></span>" + "Add to Favorites!</button>");
     targetDiv.append("<button class = btn-primary id = differentButton>" + "<span class='" + "glyphicon glyphicon-thumbs-down glyphicon-align-left" + "'></span>" + "Gimme Another Option!</button>");
     $("#testdiv").append(targetDiv);
