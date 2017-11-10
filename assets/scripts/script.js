@@ -85,13 +85,20 @@ $(document).ready(function() {
 	                console.log("------------------------------------");
 	               // creating new objects for the restaurantArray by looping through the top 10 results
 	                for (i=0; i<10; i++) {
-	                    let newRestaurant = {
-	                        name: placesResponse.results[i].name,
-	                        address: placesResponse.results[i].vicinity,
-	                        open: placesResponse.results[i].opening_hours.open_now,
-	                        photo: placesResponse.results[i].photos[0].html_attributions[0]
+	                	let newRestaurant = {
+	                	}
+	                	if (placesResponse.results[i].opening_hours && placesResponse.results[i].opening_hours.open_now) {
+
+	                	
+	                        newRestaurant.name = placesResponse.results[i].name;
+	                        newRestaurant.address = placesResponse.results[i].vicinity;
+	                        newRestaurant.open = placesResponse.results[i].opening_hours.open_now;
+	                        newRestaurant.photo = placesResponse.results[i].photos[0].html_attributions[0];
+	                       	restaurantArray.push(newRestaurant);
 	                    }
-	                restaurantArray.push(newRestaurant);
+
+
+
 	                // closing out restaurantArray loop
 	                }
 	                console.log("Restaurants Array")
