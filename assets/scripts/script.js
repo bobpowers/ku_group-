@@ -119,8 +119,8 @@ $(document).ready(function() {
 	                targetDiv.append("<h1 id = nameDisp>" + randomized.name + "</h1>");
 	                targetDiv.append("<h3 id = addrDisp>" + randomized.address + "</h3>");
 	                targetDiv.append("<h3 id = openDisp>Currently Open: " + randomized.open + "</h3>");
-	                targetDiv.append("<button class = btn-success id = addFavorite>" + "<span class='" + "glyphicon glyphicon-thumbs-up glyphicon-align-left" + "'></span>" + " | Add to Favorites</button>");
-	                targetDiv.append("<button class = btn-primary id = differentButton>" + "<span class='" + "glyphicon glyphicon-thumbs-down glyphicon-align-left" + "'></span>" + " | I don't like this choice, gimme another!</button>");
+	                targetDiv.append("<button class = btn-success id = addFavorite>" + "<span class='" + "glyphicon glyphicon-thumbs-up glyphicon-align-left" + "'></span>" + "Add to Favorites</button>");
+	                targetDiv.append("<button class = btn-primary id = differentButton>" + "<span class='" + "glyphicon glyphicon-thumbs-down glyphicon-align-left" + "'></span>" + "Gimme Another Option!</button>");
 	                window.scrollTo(0,document.body.scrollHeight);
 	                $("#results").append(targetDiv);
 	                choiceArray = [];
@@ -260,8 +260,8 @@ $(document).ready(function() {
     targetDiv.append("<h1 id = nameDisp>" + randomized.name + "</h1>");
     targetDiv.append("<h3 id = addrDisp>" + randomized.address + "</h3>");
     targetDiv.append("<h3 id = openDisp>Open: " + randomized.open + "</h3>");
-    targetDiv.append("<button class = btn-success id = addFavorite>" + "<span class='" + "glyphicon glyphicon-thumbs-up glyphicon-align-left" + "'></span>" + " | Add to Favorites</button>");
-    targetDiv.append("<button class = btn-primary id = differentButton>" + "<span class='" + "glyphicon glyphicon-thumbs-down glyphicon-align-left" + "'></span>" + " | I don't like this choice, gimme another!</button>");
+    targetDiv.append("<button class = btn-success id = addFavorite>" + "<span class='" + "glyphicon glyphicon-thumbs-up glyphicon-align-left" + "'></span>" + "Add to Favorites!</button>");
+    targetDiv.append("<button class = btn-primary id = differentButton>" + "<span class='" + "glyphicon glyphicon-thumbs-down glyphicon-align-left" + "'></span>" + "Gimme Another Option!</button>");
     $("#testdiv").append(targetDiv);
     
 	});

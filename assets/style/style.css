@@ -44,12 +44,6 @@ text-align: center;
 	height: 50px;
 }
 
-#addFavorite {
-	margin: auto;
-	width: 100%;
-	height: 50px;
-}
-
 #pickPlace {
 	background-color: green;
 	border: none;
@@ -81,10 +75,23 @@ text-align: center;
 
 #addFavorite {
 	border: none;
+	margin: auto;
+	width: 50%;
+	height: 50px;
 }
 
 #differentButton {
 	border: none;
+	margin: auto;
+	width: 50%;
+	height: 50px;
+}
+
+.glyphicon-thumbs-up,
+.glyphicon-thumbs-down {
+	float: left;
+	font-size: 1.5em;
+	margin-left: 5px;
 }
 
 #maincontainer {
