@@ -55,6 +55,10 @@ $(document).ready(function() {
 
 
 	var ajax1 = function() {
+		user = JSON.parse(localStorage.getItem("user"));
+		zip = JSON.parse(localStorage.getItem("zip"));
+		queryURL = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyAZ41msymSNTMIGE9DV22sPHymLfz7Kgtg&address=" + zip;
+	    queryproxyURL = proxy + queryURL;	
 	    $.ajax({
 	    url: queryproxyURL,
 	    method: "GET"
@@ -188,12 +192,15 @@ $(document).ready(function() {
         event.preventDefault();
         console.log("value:" + $("#searchField").val());
         var userFood = $("#searchField").val().trim();
-        if ($("#searchField").val() === "" && $("#zipField").val() == ""){
+        if ($("#searchField").val() === "" && $("#zipField").val() === ""){
             return false;
+            console.log("both fields are empty");
         }
         else if ($("#searchField").val() === "") {
+        	console.log($("#zipField").val());
             zip = $("#zipField").val();
             localStorage.setItem("zip", JSON.stringify(zip));
+            console.log("new button box is empty" + zip);
         }
         else if ($("#zipField").val() == "") {
             event.preventDefault();
@@ -211,6 +218,7 @@ $(document).ready(function() {
             }
             userAdded = [];
             updateFoods();
+            console.log("zip fields are empty");
         }
         // Write user submitted button to local storage
         else {
@@ -232,6 +240,7 @@ $(document).ready(function() {
             console.log(zip);
             userAdded = [];
             updateFoods();
+            console.log("not a clue");
         }
     });
 // Send User choices to array for Google Search
