@@ -93,7 +93,6 @@ $(document).ready(function() {
 	                        newRestaurant.name = placesResponse.results[i].name;
 	                        newRestaurant.address = placesResponse.results[i].vicinity;
 	                        newRestaurant.open = placesResponse.results[i].opening_hours.open_now;
-	                        newRestaurant.photo = placesResponse.results[i].photos[0].html_attributions[0];
 	                       	restaurantArray.push(newRestaurant);
 	                    }
 
